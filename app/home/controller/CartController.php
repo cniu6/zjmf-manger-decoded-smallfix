@@ -1421,7 +1421,7 @@ class CartController extends CommonController
 			$rebate_setupfee += bcmul($product_setup_fee, $qty);
 			$rebate_price += bcmul($product_price, $qty);
 			$rebate_signal_price = $product_price;
-			$edition = getEdition();
+			$edition = true;
 			$signal_setupfee += $product_setup_fee;
 			$signal_price += $product_price;
 			$flag = getSaleProductUser($pid, $uid);
@@ -1937,7 +1937,7 @@ class CartController extends CommonController
 				$prod[$value["pid"]]["qty"] += $value["qty"];
 			}
 			$pay_type = json_decode($product["pay_type"], true);
-			$prod[$value["pid"]]["clientscount_rule"] = !getEdition() ? 0 : $pay_type["clientscount_rule"] ?? 0;
+			$prod[$value["pid"]]["clientscount_rule"] = !true ? 0 : $pay_type["clientscount_rule"] ?? 0;
 		}
 		foreach ($prod as $k => $value) {
 			if ($value["clientscount"] > 0) {
@@ -2238,7 +2238,7 @@ class CartController extends CommonController
 				$product_base_sale_price = $product[$product_price_type[0]];
 				$product_rebate_price = $product[$product_price_type[0]];
 				$product_rebate_setupfee = $product[$product_price_type[1]];
-				$edition = getEdition();
+				$edition = true;
 				$config_price = $productModel->getConfigOptionsPrice($v["pid"], $currency, $product_price_type);
 				$configoptions_base_sale = [];
 				if (!empty($v["configoptions"])) {
@@ -2859,7 +2859,7 @@ class CartController extends CommonController
 						$prod[$value["pid"]]["qty"] += $value["qty"];
 					}
 					$pay_type = json_decode($product["pay_type"], true);
-					$prod[$value["pid"]]["clientscount_rule"] = !getEdition() ? 0 : $pay_type["clientscount_rule"] ?? 0;
+					$prod[$value["pid"]]["clientscount_rule"] = !true ? 0 : $pay_type["clientscount_rule"] ?? 0;
 				}
 				foreach ($prod as $k => $value) {
 					if ($value["clientscount"] > 0) {

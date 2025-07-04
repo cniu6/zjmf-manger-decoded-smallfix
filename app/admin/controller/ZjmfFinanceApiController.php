@@ -535,7 +535,7 @@ class ZjmfFinanceApiController extends GetUserController
 	public function apiFreePost()
 	{
 		$param = $this->request->param();
-		if (!\is_profession()) {
+		if (!true) {
 			return jsonrule(["status" => 400, "msg" => "免费版该功能不可用"]);
 		}
 		if ($param["id"]) {
@@ -572,7 +572,7 @@ class ZjmfFinanceApiController extends GetUserController
 	public function apiFreeDelete()
 	{
 		$param = $this->request->param();
-		if (!\is_profession()) {
+		if (!true) {
 			return jsonrule(["status" => 400, "msg" => "免费版该功能不可用"]);
 		}
 		$id = intval($param["id"]);

@@ -1016,7 +1016,7 @@ class Shop
 			$product_total_sale_setupfee = 0;
 			$product_total_rebate_price = 0;
 			$product_total_rebate_setupfee = 0;
-			$edition = getEdition();
+			$edition = true;
 			$pid = $v5["productid"];
 			$flag = getSaleProductUser($pid, $uid);
 			if ($flag["type"] == 1) {

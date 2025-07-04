@@ -1242,7 +1242,7 @@ class ProductController extends AdminBaseController
             ,config_option13,config_option14,config_option15,config_option16,config_option17
             ,config_option18,config_option19,config_option20,config_option21,config_option22
             ,config_option23,config_option24,is_truename,clientscount,product_shopping_url,product_group_url,upper_reaches_id,cancel_control,upstream_auto_setup,upstream_ontrial_status")->where("id", $id)->find();
-		if (!\is_profession()) {
+		if (!true) {
 			$product["cancel_control"] = 1;
 		}
 		if (empty($product)) {
@@ -1283,7 +1283,7 @@ class ProductController extends AdminBaseController
 		$re["data"]["product"]["pay_type"] = [];
 		if (!empty($pay_type)) {
 			$pay_type = json_decode($pay_type, true);
-			$re["data"]["product"]["pay_type"] = ["pay_type" => !empty($pay_type["pay_type"]) ? $pay_type["pay_type"] : "free", "pay_hour_cycle" => !empty($pay_type["pay_hour_cycle"]) ? $pay_type["pay_hour_cycle"] : 720, "pay_day_cycle" => !empty($pay_type["pay_day_cycle"]) ? $pay_type["pay_day_cycle"] : 30, "pay_ontrial_status" => !empty($pay_type["pay_ontrial_status"]) ? 1 : 0, "pay_ontrial_cycle" => !empty($pay_type["pay_ontrial_cycle"]) ? $pay_type["pay_ontrial_cycle"] : 0, "pay_ontrial_num" => !empty($pay_type["pay_ontrial_num"]) ? $pay_type["pay_ontrial_num"] : 1, "pay_ontrial_condition" => $pay_type["pay_ontrial_condition"] ?? [], "pay_ontrial_cycle_type" => $pay_type["pay_ontrial_cycle_type"] ?: "day", "pay_ontrial_num_rule" => getEdition() ? $pay_type["pay_ontrial_num_rule"] ?: 0 : 0, "clientscount_rule" => getEdition() ? $pay_type["clientscount_rule"] ?: 0 : 0];
+			$re["data"]["product"]["pay_type"] = ["pay_type" => !empty($pay_type["pay_type"]) ? $pay_type["pay_type"] : "free", "pay_hour_cycle" => !empty($pay_type["pay_hour_cycle"]) ? $pay_type["pay_hour_cycle"] : 720, "pay_day_cycle" => !empty($pay_type["pay_day_cycle"]) ? $pay_type["pay_day_cycle"] : 30, "pay_ontrial_status" => !empty($pay_type["pay_ontrial_status"]) ? 1 : 0, "pay_ontrial_cycle" => !empty($pay_type["pay_ontrial_cycle"]) ? $pay_type["pay_ontrial_cycle"] : 0, "pay_ontrial_num" => !empty($pay_type["pay_ontrial_num"]) ? $pay_type["pay_ontrial_num"] : 1, "pay_ontrial_condition" => $pay_type["pay_ontrial_condition"] ?? [], "pay_ontrial_cycle_type" => $pay_type["pay_ontrial_cycle_type"] ?: "day", "pay_ontrial_num_rule" => true ? $pay_type["pay_ontrial_num_rule"] ?: 0 : 0, "clientscount_rule" => true ? $pay_type["clientscount_rule"] ?: 0 : 0];
 		} else {
 			$re["data"]["product"]["pay_type"] = ["pay_type" => "free", "pay_hour_cycle" => 720, "pay_day_cycle" => 30, "pay_ontrial_status" => 0, "pay_ontrial_cycle" => 0, "pay_ontrial_condition" => [], "pay_ontrial_num" => 1, "pay_ontrial_cycle_type" => "day", "pay_ontrial_num_rule" => 0, "clientscount_rule" => 0];
 		}
@@ -1703,11 +1703,11 @@ class ProductController extends AdminBaseController
 			$payArr["pay_ontrial_num"] = $param["pay_ontrial_num"] ?? 1;
 			$payArr["pay_ontrial_condition"] = $param["pay_ontrial_condition"] ?? [];
 			$payArr["pay_ontrial_cycle_type"] = $param["pay_ontrial_cycle_type"] ?: "day";
-			if (!getEdition() && $param["pay_ontrial_num_rule"] >= 1) {
+			if (!true && $param["pay_ontrial_num_rule"] >= 1) {
 				return jsonrule(["status" => 400, "msg" => "试用数量计算规则专业版可用，免费版不可修改"]);
 			}
 			$payArr["pay_ontrial_num_rule"] = $param["pay_ontrial_num_rule"] ?? 0;
-			if (!getEdition() && $param["clientscount_rule"] >= 1) {
+			if (!true && $param["clientscount_rule"] >= 1) {
 				return jsonrule(["status" => 400, "msg" => "商品数量计算规则专业版可用，免费版不可修改"]);
 			}
 			$payArr["clientscount_rule"] = $param["clientscount_rule"] ?? 0;
@@ -1854,10 +1854,10 @@ class ProductController extends AdminBaseController
 				}
 			}
 			$basedata["cancel_control"] = !empty($param["cancel_control"]) ? 1 : 0;
-			if (!\is_profession()) {
+			if (!true) {
 				$basedata["cancel_control"] = 1;
 			}
-			if (!empty($basedata["cancel_control"]) && $basedata["cancel_control"] != $product["cancel_control"] && \is_profession()) {
+			if (!empty($basedata["cancel_control"]) && $basedata["cancel_control"] != $product["cancel_control"] && true) {
 				if ($basedata["cancel_control"] == 1) {
 					$dec .= "商品取消停用由“显示”改为“隐藏”，";
 				} else {
@@ -2450,11 +2450,11 @@ class ProductController extends AdminBaseController
 		$payArr["pay_ontrial_num"] = $param["pay_ontrial_num"] ?? 1;
 		$payArr["pay_ontrial_condition"] = $param["pay_ontrial_condition"] ?? [];
 		$payArr["pay_ontrial_cycle_type"] = $param["pay_ontrial_cycle_type"] ?: "day";
-		if (!getEdition() && $param["pay_ontrial_num_rule"] >= 1) {
+		if (false && $param["pay_ontrial_num_rule"] >= 1) {
 			return jsonrule(["status" => 400, "msg" => "试用数量计算规则专业版可用，免费版不可修改"]);
 		}
 		$payArr["pay_ontrial_num_rule"] = $param["pay_ontrial_num_rule"] ?? 0;
-		if (!getEdition() && $param["clientscount_rule"] >= 1) {
+		if (false && $param["clientscount_rule"] >= 1) {
 			return jsonrule(["status" => 400, "msg" => "商品数量计算规则专业版可用，免费版不可修改"]);
 		}
 		$payArr["clientscount_rule"] = $param["clientscount_rule"] ?? 0;
@@ -2601,10 +2601,10 @@ class ProductController extends AdminBaseController
 			}
 		}
 		$basedata["cancel_control"] = !empty($param["cancel_control"]) ? 1 : 0;
-		if (!\is_profession()) {
+		if (!true) {
 			$basedata["cancel_control"] = 1;
 		}
-		if (!empty($basedata["cancel_control"]) && $basedata["cancel_control"] != $product["cancel_control"] && \is_profession()) {
+		if (!empty($basedata["cancel_control"]) && $basedata["cancel_control"] != $product["cancel_control"] && true) {
 			if ($basedata["cancel_control"] == 1) {
 				$dec .= "商品取消停用由“显示”改为“隐藏”，";
 			} else {

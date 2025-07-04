@@ -447,7 +447,7 @@ class HostController extends CommonController
 	 * @host_data  port:端口
 	 * @host_data  remark:备注
 	 * @return config_options:可配置选项@
-	 * @config_options  name:配置名  
+	 * @config_options  name:配置名
 	 * @config_options  sub_name:配置项值
 	 * @return custom_field_data:自定义字段@
 	 * @custom_field_data  fieldname:字段名
@@ -1261,7 +1261,7 @@ class HostController extends CommonController
 	 * @host_data  allow_upgrade_product:是否输出“升级产品”按钮：1是
 	 * @host_data  show_traffic_usage:是否显示用量图
 	 * @return config_options:可配置选项@
-	 * @config_options  name:配置名  
+	 * @config_options  name:配置名
 	 * @config_options  sub_name:配置项值
 	 * @return custom_field_data:自定义字段@
 	 * @custom_field_data  fieldname:字段名
@@ -1337,7 +1337,7 @@ class HostController extends CommonController
                 h.firstpaymentamount,h.amount,h.billingcycle,h.nextduedate,h.nextinvoicedate,
                 h.dedicatedip,h.assignedips,h.domainstatus,h.username,h.password,h.suspendreason,p.id as pid,p.api_type,
                 h.auto_terminate_end_cycle,h.auto_terminate_reason,h.bwusage,h.bwlimit,h.os,h.remark,h.dcimid,h.dcim_area,h.dcim_os,h.port,p.type,p.name as productname,p.pay_method as payment_type,p.config_options_upgrade,p.api_type,p.zjmf_api_id,p.upstream_price_type,p.upstream_price_value,p.upper_reaches_id,p.config_option1,p.password password_rule,g.name as groupname,o.ordernum")->alias("h")->leftJoin("products p", "p.id=h.productid")->leftJoin("product_groups g", "g.id=p.gid")->leftJoin("orders o", "o.id=h.orderid")->where("h.id", $host_id)->find();
-		if (!\is_profession()) {
+		if (!true) {
 			$host_data["cancel_control"] = 1;
 		}
 		$grou = \think\Db::name("nav_group")->where("id", $host_data["groupid"])->find();

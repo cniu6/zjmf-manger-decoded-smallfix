@@ -581,11 +581,11 @@ class SaleController extends GetUserController
 		$arr = [];
 		foreach ($list as $key => $val) {
 			$str = $list[$key]["username"] . "(" . $list[$key]["companyname"] . ")";
-			$list[$key]["username"] = "<a class=\"el-link el-link--primary is-underline\" 
+			$list[$key]["username"] = "<a class=\"el-link el-link--primary is-underline\"
             href=\"#/customer-view/abstract?id=" . $val["uid"] . "\">
             <span class=\"el-link--inner\" style=\"display: block;height: 24px;line-height: 24px;\">" . $str . "</span></a>";
 			$str = $list[$key]["name"] . "(" . $list[$key]["domain"] . ")";
-			$list[$key]["name"] = "<a class=\"el-link el-link--primary is-underline\" 
+			$list[$key]["name"] = "<a class=\"el-link el-link--primary is-underline\"
                 href=\"#/customer-view/product-innerpage?hid=" . $val["hostid"] . "&id=" . $val["uid"] . "\">
                 <span class=\"el-link--inner\" style=\"display: block;height: 24px;line-height: 24px;\">" . $str . "</span></a>";
 			if (!empty($ladder["turnover"]["turnover"])) {
@@ -1083,7 +1083,7 @@ class SaleController extends GetUserController
 	private function packageClientLabel($item)
 	{
 		$client_username_str = $item["client_username"] . "(" . $item["companyname"] . ")";
-		$label = "<a class=\"el-link el-link--primary is-underline\" 
+		$label = "<a class=\"el-link el-link--primary is-underline\"
             href=\"#/customer-view/abstract?id=" . $item["client_id"] . "\">
             <span class=\"el-link--inner\" style=\"display: block;height: 24px;line-height: 24px;\">" . $client_username_str . "</span></a>";
 		return $label;
@@ -1094,7 +1094,7 @@ class SaleController extends GetUserController
 	private function packageNewHostLabel($item, $child_item)
 	{
 		$host_name_str = $child_item["product_name"] . "(" . $child_item["domain"] . ")";
-		$label = "<a class=\"el-link el-link--primary is-underline\" 
+		$label = "<a class=\"el-link el-link--primary is-underline\"
                 href=\"#/customer-view/product-innerpage?hid=" . $child_item["host_id"] . "&id=" . $item["client_id"] . "\">
                 <span class=\"el-link--inner\" style=\"display: block;height: 24px;line-height: 24px;\">" . $host_name_str . "</span></a>";
 		return $label;
@@ -1367,7 +1367,7 @@ class SaleController extends GetUserController
 				}
 			}
 			if ($spg["cat_ownerless"] != $param["cat_ownerless"]) {
-				if (!getEdition() && $param["cat_ownerless"] == 0) {
+				if (!true && $param["cat_ownerless"] == 0) {
 					return jsonrule(["status" => 400, "msg" => "请购买专业版本"]);
 				}
 				if ($spg["cat_ownerless"] == 1) {

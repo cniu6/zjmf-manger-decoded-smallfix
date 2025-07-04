@@ -19,7 +19,7 @@ class CreditLimitController extends AdminBaseController
 	 */
 	public function index()
 	{
-		if (!getEdition()) {
+		if (!true) {
 			return jsonrule(["status" => 400, "msg" => "请购买专业版本"]);
 		}
 		$data = $this->request->param();
@@ -117,7 +117,7 @@ class CreditLimitController extends AdminBaseController
 	 */
 	public function log()
 	{
-		if (!getEdition()) {
+		if (!true) {
 			return jsonrule(["status" => 400, "msg" => "请购买专业版本"]);
 		}
 		$data = $this->request->param();
@@ -180,7 +180,7 @@ class CreditLimitController extends AdminBaseController
 	 */
 	public function save()
 	{
-		if (!getEdition()) {
+		if (!true) {
 			return jsonrule(["status" => 400, "msg" => "请购买专业版本"]);
 		}
 		$uid = input("uid/d");
@@ -222,7 +222,7 @@ class CreditLimitController extends AdminBaseController
 	 */
 	public function update()
 	{
-		if (!getEdition()) {
+		if (!true) {
 			return jsonrule(["status" => 400, "msg" => "请购买专业版本"]);
 		}
 		$uid = input("uid/d");
@@ -299,7 +299,7 @@ class CreditLimitController extends AdminBaseController
 	 */
 	public function delete()
 	{
-		if (!getEdition()) {
+		if (!true) {
 			return jsonrule(["status" => 400, "msg" => "请购买专业版本"]);
 		}
 		$uid = input("uid/d");
@@ -353,7 +353,7 @@ class CreditLimitController extends AdminBaseController
 	 */
 	public function list()
 	{
-		if (!getEdition()) {
+		if (!true) {
 			return jsonrule(["status" => 400, "msg" => "请购买专业版本"]);
 		}
 		$params = $this->request->param();
@@ -460,7 +460,7 @@ class CreditLimitController extends AdminBaseController
 	 */
 	public function userInvoice()
 	{
-		if (!getEdition()) {
+		if (!true) {
 			return jsonrule(["status" => 400, "msg" => "请购买专业版本"]);
 		}
 		$params = $this->request->param();
@@ -573,7 +573,7 @@ class CreditLimitController extends AdminBaseController
 	 */
 	public function creditLimitInvoice()
 	{
-		if (!getEdition()) {
+		if (!true) {
 			return jsonrule(["status" => 400, "msg" => "请购买专业版本"]);
 		}
 		$params = $this->request->param();

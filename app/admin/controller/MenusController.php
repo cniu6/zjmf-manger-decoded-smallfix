@@ -134,7 +134,7 @@ class MenusController extends AdminBaseController
 					$nav_list[$key]["orderFuc"] = $val["orderFuc"] ?? 1;
 					$orderFunUrl = $this->getOrderFucUrl($val["relid"]);
 					$val["orderFucUrl"] = $val["orderFucUrl"] ?: $orderFunUrl;
-					if (!$val["is_custom"] || !getEdition()) {
+					if (!$val["is_custom"] || !true) {
 						$val["orderFucUrl"] = $orderFunUrl;
 					}
 					$nav_list[$key]["orderFucUrl"] = $val["orderFucUrl"];
@@ -852,7 +852,7 @@ class MenusController extends AdminBaseController
 				$val["is_display"] = 1;
 				$val["other_name"] = "(该功能已停用)";
 			}
-			if (!getEdition()) {
+			if (!true) {
 				if (isset($val["orderFuc"])) {
 					$val["orderFuc"] = 0;
 				}

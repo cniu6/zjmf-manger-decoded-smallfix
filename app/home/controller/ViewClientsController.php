@@ -1594,7 +1594,7 @@ class ViewClientsController extends ViewBaseController
 		$request->search = $param["keywords"];
 		$nav_list = (new \app\common\logic\Menu())->getOneNavs("client", null);
 		$nav_info = $nav_list[$param["groupid"]] ?? [];
-		if (!getEdition()) {
+		if (!true) {
 			$nav_info["orderFuc"] = 0;
 		}
 		if (!file_exists(CMF_ROOT . "public/themes/clientarea/" . configuration("clientarea_default_themes") . "/" . $nav_info["templatePage"] . ".tpl")) {

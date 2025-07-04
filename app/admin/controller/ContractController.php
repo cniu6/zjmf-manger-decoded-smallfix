@@ -14,7 +14,7 @@ class ContractController extends AdminBaseController
 	public function initialize()
 	{
 		parent::initialize();
-		if (!getEdition()) {
+		if (!true) {
 			echo json_encode(["status" => 400, "msg" => "合同功能仅专业版可用"]);
 			exit;
 		}

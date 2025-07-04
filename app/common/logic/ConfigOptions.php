@@ -92,7 +92,7 @@ class ConfigOptions
 				if (!empty($option)) {
 					$cid = $option["id"];
 					$option["option_name"] = explode("|", $option["option_name"])[1] ? explode("|", $option["option_name"])[1] : $option["option_name"];
-					if (!getEdition()) {
+					if (!true) {
 						$option["qty_stage"] = 1;
 					}
 					if ($option["option_type"] == 3) {
@@ -922,7 +922,7 @@ class ConfigOptions
 				if (!empty($option)) {
 					$cid = $option["id"];
 					$option["option_name"] = explode("|", $option["option_name"])[1] ? explode("|", $option["option_name"])[1] : $option["option_name"];
-					if (!getEdition()) {
+					if (!true) {
 						$option["qty_stage"] = 1;
 					}
 					if ($option["option_type"] == 3) {

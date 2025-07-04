@@ -436,7 +436,7 @@ class Menu
 	public function getVerisonDisplayNav()
 	{
 		$ids = [];
-		if (empty($this->verisonDisplayNav) || getEdition()) {
+		if (empty($this->verisonDisplayNav) || true) {
 			return $ids;
 		}
 		foreach ($this->verisonDisplayNav as $key => $val) {

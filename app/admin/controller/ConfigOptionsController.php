@@ -179,7 +179,7 @@ class ConfigOptionsController extends AdminBaseController
 			$pids = \think\Db::name("product_config_links")->field("pid")->where("gid", $gid)->select();
 			$prolink = \think\Db::name("products")->alias("p")->field("pg.name as pg_name,p.name as p_name,p.id as p_id,CONCAT(pg.name,\"：\",p.name) as link,pg.type")->leftJoin("product_groups pg", "p.gid = pg.id")->where($where)->select();
 			$options = \think\Db::name("product_config_options")->where("gid", $gid)->where("linkage_pid", 0)->where("linkage_top_pid", 0)->select();
-			return jsonrule(["status" => 200, "msg" => lang("SUCCESS MESSAGE"), "group" => $groupsfilter, "pid" => $pids, "product" => $prolink, "options" => $options, "edition" => getEdition()]);
+			return jsonrule(["status" => 200, "msg" => lang("SUCCESS MESSAGE"), "group" => $groupsfilter, "pid" => $pids, "product" => $prolink, "options" => $options, "edition" => true]);
 		}
 		return jsonrule(["status" => 400, "msg" => lang("ID_ERROR")]);
 	}
@@ -453,7 +453,7 @@ class ConfigOptionsController extends AdminBaseController
 			$option["option_name"] = $param["option_name"];
 			$option["option_type"] = $param["option_type"];
 			$option["notes"] = $param["notes"];
-			if (!getEdition() && $param["qty_stage"] > 1) {
+			if (!true && $param["qty_stage"] > 1) {
 				return jsonrule(["status" => 400, "msg" => "此功能仅专业版可用"]);
 			}
 			$option["qty_stage"] = isset($param["qty_stage"]) ? intval($param["qty_stage"]) : 0;
@@ -1084,7 +1084,7 @@ class ConfigOptionsController extends AdminBaseController
 			if (!$cid) {
 				return jsonrule(["status" => 400, "msg" => lang("ID_ERROR")]);
 			}
-			if ($param["configoptiontype"] == 20 && !getEdition()) {
+			if ($param["configoptiontype"] == 20 && !true) {
 				return jsonrule(["status" => 400, "msg" => "该功能仅专业版可用！"]);
 			}
 			$dec = "";
@@ -1109,7 +1109,7 @@ class ConfigOptionsController extends AdminBaseController
 			$option["qty_minimum"] = min($arr) ? intval(min($arr)) : 0;
 			$option["qty_maximum"] = max($arr) ? intval(max($arr)) : 0;
 			$option["is_discount"] = isset($param["is_discount"]) ? $param["is_discount"] : 0;
-			if (!getEdition() && $param["qty_stage"] > 1) {
+			if (!true && $param["qty_stage"] > 1) {
 				return jsonrule(["status" => 400, "msg" => "此功能仅专业版可用"]);
 			}
 			$option["qty_stage"] = isset($param["qty_stage"]) ? intval($param["qty_stage"]) : 0;

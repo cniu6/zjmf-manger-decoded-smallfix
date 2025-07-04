@@ -1277,7 +1277,7 @@ class OrderController extends GetUserController
 			$product_base_sale_price = $price_cycle;
 			$product_rebate_price = $price_cycle;
 			$product_rebate_setupfee = $price_setup;
-			$edition = getEdition();
+			$edition = true;
 			$configoptions_base_sale = [];
 			foreach ($configoption as $k => $v) {
 				if ($k == $kp) {
@@ -1690,7 +1690,7 @@ class OrderController extends GetUserController
 				$product_base_sale_price = $product[$product_price_type[0]];
 				$product_rebate_price = $product[$product_price_type[0]];
 				$product_rebate_setupfee = $product[$product_price_type[1]];
-				$edition = getEdition();
+				$edition = true;
 				$config_price = model("Product")->getConfigOptionsPrice($v["pid"], $currency, $product_price_type);
 				$configoptions_base_sale = [];
 				if (!empty($v["configoptions"])) {

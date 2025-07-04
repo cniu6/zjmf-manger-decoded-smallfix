@@ -153,7 +153,7 @@ class IndexController extends CommonController
 	{
 		$zjmf_authorize = configuration("zjmf_authorize");
 		if (empty($zjmf_authorize)) {
-			$is_profession = false;
+			$is_profession = true;
 		} else {
 			$_strcode = _strcode($zjmf_authorize, "DECODE", "zjmf_key_strcode");
 			$_strcode = explode("|zjmf|", $_strcode);
@@ -165,9 +165,10 @@ class IndexController extends CommonController
 			}
 			$auth = json_decode($de_str, true);
 			if (time() > $auth["last_license_time"] + 1296000 || ltrim(str_replace("https://", "", str_replace("http://", "", $auth["domain"])), "www.") != ltrim(str_replace("https://", "", str_replace("http://", "", $_SERVER["HTTP_HOST"])), "www.") || $auth["installation_path"] != CMF_ROOT || $auth["license"] != configuration("system_license")) {
-				$is_profession = false;
+				$is_profession = true;
 			} else {
-				$is_profession = $auth["edition"] == 1 ? true : false;
+				// $is_profession = $auth["edition"] == 1 ? true : false;
+				$is_profession = true;
 			}
 		}
 		$logo_url = configuration("logo_url");

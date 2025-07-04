@@ -711,7 +711,7 @@ class Upgrade
 				}
 			}
 		}
-		$edition = getEdition();
+		$edition = true;
 		$flag = getSaleProductUser($host["pid"], $uid);
 		$saleproducts = 0;
 		if ($flag) {

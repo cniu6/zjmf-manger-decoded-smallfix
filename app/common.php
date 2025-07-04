@@ -567,7 +567,7 @@ function view_tpl_replace($content, $tag, $templateName = "")
 <meta charset=\"utf-8\" />
 <title>当前模板输出的数据</title>
 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-<style type=\"text/css\">           
+<style type=\"text/css\">
             body, h1, h2, h3, td, th, p {
                 font-family: sans-serif;
                 font-weight: normal;
@@ -601,7 +601,7 @@ function view_tpl_replace($content, $tag, $templateName = "")
                 text-align: left;
             }
             td {
-                color: green;			
+                color: green;
 				padding:15px 10px;
             }
             tr:nth-of-type(odd) {
@@ -609,7 +609,7 @@ function view_tpl_replace($content, $tag, $templateName = "")
             }
             tr:nth-of-type(even) {
                 background-color: #fafafa;
-            }            
+            }
         </style>
 </head>
 <body>
@@ -3755,7 +3755,7 @@ function getCommissioninvoice($oid, $type, $aff_type, $ladder, $bates)
 			$hosts[$key]["commission_bates_type"] = $aff_type;
 		}
 		$str = $hosts[$key]["name"] . "(" . $hosts[$key]["domain"] . ")";
-		$hosts[$key]["names"] = "<a class=\"el-link el-link--primary is-underline\" 
+		$hosts[$key]["names"] = "<a class=\"el-link el-link--primary is-underline\"
                 href=\"#/customer-view/product-innerpage?hid=" . $val["hostid"] . "&id=" . $val["uid"] . "\">
                 <span class=\"el-link--inner\" style=\"display: block;height: 24px;line-height: 24px;\">" . $str . "</span></a>";
 		switch ($val["type"]) {
@@ -3976,7 +3976,7 @@ function getCommissioninvoicebyhost($hosts, $aff_type, $ladder, $bates)
 		$hosts["commission_bates_type"] = $aff_type;
 	}
 	$str = $hosts["name"] . "(" . $hosts["domain"] . ")";
-	$hosts["names"] = "<a class=\"el-link el-link--primary is-underline\" 
+	$hosts["names"] = "<a class=\"el-link el-link--primary is-underline\"
             href=\"#/customer-view/product-innerpage?hid=" . $hosts["hostid"] . "&id=" . $hosts["uid"] . "\">
             <span class=\"el-link--inner\" style=\"display: block;height: 24px;line-height: 24px;\">" . $str . "</span></a>";
 	switch ($hosts["type"]) {
@@ -4780,7 +4780,7 @@ function judgeOntrialNum($pid, $uid, $qty, $admin = false, $cart = false, $edit 
 	$pay_type = $pro["pay_type"];
 	$pay_type = json_decode($pay_type, true);
 	$pay_ontrial_num = $pay_type["pay_ontrial_num"] ?? 1;
-	$pay_ontrial_num_rule = !getEdition() ? 0 : $pay_type["pay_ontrial_num_rule"] ?? 0;
+	$pay_ontrial_num_rule = !true ? 0 : $pay_type["pay_ontrial_num_rule"] ?? 0;
 	$whereMap = [];
 	if ($pay_ontrial_num_rule) {
 		$whereMap["a.domainstatus"] = "Active";

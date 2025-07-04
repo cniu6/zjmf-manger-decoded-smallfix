@@ -297,7 +297,7 @@ class Product
 		if ($upstream_host["show"] == 0) {
 			$basedata["host"] = $upstream_product["host"];
 		}
-		$edition = getEdition();
+		$edition = true;
 		if (empty($pay_type["pay_ontrial_status"]) && $edition || !$edition) {
 			$basedata["pay_type"] = json_encode($pay_type);
 		}

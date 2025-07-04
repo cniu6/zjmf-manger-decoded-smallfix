@@ -20,7 +20,7 @@ class LoginController extends \cmf\controller\HomeBaseController
 	}
 	/**
 	 * @title 登录
-	 * @description 
+	 * @description
 	 * return
 	 * @author xiong
 	 * @url /login_api
@@ -105,7 +105,7 @@ class LoginController extends \cmf\controller\HomeBaseController
 				$dataLogin["sms_country"][0]["link"] = "+86(中国)";
 			}
 		}
-		if (\is_profession()) {
+		if (true) {
 			$plugins = [];
 			$list = \think\Db::name("plugin")->where(["module" => "oauth", "status" => 1])->order("order", "asc")->select()->toArray();
 			$oauth = array_map("basename", glob(CMF_ROOT . "modules/oauth/*", GLOB_ONLYDIR));
@@ -138,7 +138,7 @@ class LoginController extends \cmf\controller\HomeBaseController
 	}
 	/**
 	 * @title 登录
-	 * @description 
+	 * @description
 	 * return
 	 * @author xiong
 	 * @url /login
@@ -332,7 +332,7 @@ class LoginController extends \cmf\controller\HomeBaseController
 	}
 	/**
 	 * @title 获取支持的注册方式
-	 * @description 
+	 * @description
 	 * return
 	 * @author xiong
 	 * @url /register
@@ -375,7 +375,7 @@ class LoginController extends \cmf\controller\HomeBaseController
 	}
 	/**
 	 * @title 注册
-	 * @description 
+	 * @description
 	 * return
 	 * @author xiong
 	 * @url /register
@@ -542,7 +542,7 @@ class LoginController extends \cmf\controller\HomeBaseController
 	}
 	/**
 	 * @title 找回密码
-	 * @description 
+	 * @description
 	 * return
 	 * @author xiong
 	 * @url /pwreset

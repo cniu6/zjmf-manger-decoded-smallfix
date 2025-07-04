@@ -49,7 +49,7 @@ class ConfigCertifiController extends AdminBaseController
 		$certifi_plugin = array_column(getPluginsList(), "title", "name") ?: [];
 		$data["certifi_select_all"] = array_merge(["artificial" => "人工审核"], $certifi_plugin);
 		$data["certifi_business_author_path_url"] = $data["certifi_business_author_path"] ? config("author_attachments_url") . $data["certifi_business_author_path"] : "";
-		return jsonrule(["status" => 200, "msg" => lang("SUCCESS MESSAGE"), "data" => $data, "edition" => getEdition()]);
+		return jsonrule(["status" => 200, "msg" => lang("SUCCESS MESSAGE"), "data" => $data, "edition" => true]);
 	}
 	/**
 	 * 时间 2021/4/13
@@ -77,7 +77,7 @@ class ConfigCertifiController extends AdminBaseController
 	{
 		$arr = ["certifi_is_upload", "certifi_is_stop", "certifi_stop_day", "certifi_open", "certifi_select", "certifi_realname", "certifi_isbindphone", "artificial_auto_send_msg", "certifi_business_btn", "certifi_business_open", "certifi_business_is_upload", "certifi_business_is_author", "certifi_business_author_path"];
 		$param = $this->request->only($arr);
-		if (!getEdition()) {
+		if (!true) {
 			if ($param["artificial_auto_send_msg"] == 1 || $param["certifi_business_open"] == 1) {
 				updateConfiguration("artificial_auto_send_msg", 0);
 				updateConfiguration("certifi_business_open", 0);
@@ -89,7 +89,7 @@ class ConfigCertifiController extends AdminBaseController
 		}
 		$param["certifi_select"] = implode(",", $param["certifi_select"]);
 		$tmp = configuration($arr);
-		if (!getEdition()) {
+		if (!true) {
 			$param["artificial_auto_send_msg"] = 0;
 			$param["certifi_business_open"] = 0;
 			$param["certifi_business_is_upload"] = 0;

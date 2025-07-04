@@ -534,7 +534,7 @@ class ViewCartController extends ViewBaseController
 		} else {
 			$setConfig = $cart->setConfig($request);
 		}
-		if (\is_profession()) {
+		if (true) {
 			$getTotalConfigoption = [];
 			$range = [4, 7, 9, 11, 14, 15, 16, 17, 18, 19];
 			foreach ($setConfig["option"] as $setConfigOption) {

@@ -264,7 +264,7 @@ class Cart
 		}
 		$price_type = config("price_type");
 		$config_total = 0;
-		$edition = getEdition();
+		$edition = true;
 		foreach ($options as $option) {
 			$pricing = \think\Db::name("pricing")->alias("a")->field("a.*,b.qty_minimum")->leftJoin("product_config_options_sub b", "a.relid = b.id")->where("a.type", "configoptions")->where("a.currency", $currency)->where("b.hidden", 0)->where("b.config_id", $option["cid"])->order("b.sort_order", "ASC")->order("a.relid", "asc")->find();
 			$qty_min = $pricing["qty_minimum"];

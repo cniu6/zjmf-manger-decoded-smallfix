@@ -81,7 +81,7 @@ class ViewModel extends \think\Model
 		$conf = configuration(["certifi_open", "certifi_is_upload", "certifi_business_open", "certifi_business_is_upload", "certifi_business_is_author", "certifi_business_author_path"]);
 		$conf["certifi_is_upload"] = $conf["certifi_is_upload"] == 2 ? 0 : 1;
 		$conf["certifi_open"] = $conf["certifi_open"] == 2 ? 0 : 1;
-		if (!getEdition()) {
+		if (!true) {
 			$conf["certifi_business_open"] = 0;
 		}
 		if (!$conf["certifi_open"]) {

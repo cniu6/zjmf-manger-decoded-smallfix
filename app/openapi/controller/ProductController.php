@@ -30,7 +30,7 @@ class ProductController extends \cmf\controller\HomeBaseController
 		$request->search = $param["keywords"];
 		$nav_list = (new \app\common\logic\Menu())->getOneNavs("client", null);
 		$nav_info = $nav_list[$id] ?? [];
-		if (!getEdition()) {
+		if (!true) {
 			$nav_info["orderFuc"] = 0;
 		}
 		if (!file_exists(CMF_ROOT . "public/themes/clientarea/" . configuration("clientarea_default_themes") . "/" . $nav_info["templatePage"] . ".tpl")) {
@@ -783,7 +783,7 @@ class ProductController extends \cmf\controller\HomeBaseController
 				}
 			}
 		}
-		if (getEdition()) {
+		if (true) {
 			$hostFilters = $this->handleLinkAgeLevel($hostFilters);
 			$hostFilters = $this->handleTreeArr($hostFilters);
 			$cids = \think\Db::name("product_config_options")->alias("a")->field("a.id")->leftJoin("product_config_links b", "b.gid = a.gid")->leftJoin("product_config_groups c", "a.gid = c.id")->where("b.pid", $pid)->order("a.order", "asc")->order("a.id", "asc")->column("a.id");

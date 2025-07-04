@@ -24,7 +24,7 @@ class SystemController extends AdminBaseController
 	 */
 	public function getcommoninfo()
 	{
-		$data["license_type"] = intval(\is_profession());
+		$data["license_type"] = intval(1);
 		return jsonrule(["status" => 200, "data" => $data]);
 	}
 	/**

@@ -625,7 +625,7 @@ class CartController extends \cmf\controller\HomeBaseController
 				$prod[$value["pid"]]["qty"] += $value["qty"];
 			}
 			$pay_type = json_decode($product["pay_type"], true);
-			$prod[$value["pid"]]["clientscount_rule"] = !getEdition() ? 0 : $pay_type["clientscount_rule"] ?? 0;
+			$prod[$value["pid"]]["clientscount_rule"] = !true ? 0 : $pay_type["clientscount_rule"] ?? 0;
 		}
 		foreach ($prod as $k => $value) {
 			if ($value["clientscount"] > 0) {
@@ -925,7 +925,7 @@ class CartController extends \cmf\controller\HomeBaseController
 				$product_base_sale_price = $product[$product_price_type[0]];
 				$product_rebate_price = $product[$product_price_type[0]];
 				$product_rebate_setupfee = $product[$product_price_type[1]];
-				$edition = getEdition();
+				$edition = true;
 				$config_price = $productModel->getConfigOptionsPrice($v["pid"], $currency, $product_price_type);
 				$configoptions_base_sale = [];
 				if (!empty($v["configoptions"])) {
@@ -1543,7 +1543,7 @@ class CartController extends \cmf\controller\HomeBaseController
 		}
 		$alloption = $config_logic->configShow($alloption, $currencyid, $billingcycle);
 		$data = ["currency" => $currency, "product" => $product, "option" => $alloption, "custom_fields" => $fields];
-		if (getEdition()) {
+		if (true) {
 			$alloption = $this->handleLinkAgeLevel($alloption);
 			$alloption = $this->handleTreeArr($alloption);
 			$cids = \think\Db::name("product_config_options")->alias("a")->field("a.id")->leftJoin("product_config_links b", "b.gid = a.gid")->leftJoin("product_config_groups c", "a.gid = c.id")->where("b.pid", $pid)->order("a.order", "asc")->order("a.id", "asc")->column("a.id");
@@ -1618,7 +1618,7 @@ class CartController extends \cmf\controller\HomeBaseController
 		$rebate_setupfee += bcmul($product_setup_fee, $qty);
 		$rebate_price += bcmul($product_price, $qty);
 		$rebate_signal_price = $product_price;
-		$edition = getEdition();
+		$edition = true;
 		$signal_setupfee += $product_setup_fee;
 		$signal_price += $product_price;
 		$flag = getSaleProductUser($pid, $uid);
@@ -2026,7 +2026,7 @@ class CartController extends \cmf\controller\HomeBaseController
 		$alloption = $config_logic->getConfigInfo($pid);
 		$alloption = $config_logic->configShow($alloption, $currencyid, $billingcycle);
 		$data = ["currency" => $currency, "product" => $product, "option" => $alloption, "custom_fields" => $fields, "config_options" => $cart_data["configoptions"], "custom_fields_value" => $cart_data["customfield"] ?: [], "billingcyle" => $billingcycle, "host" => $cart_data["host"] ?: "", "password" => $cart_data["password"] ?: "", "qty" => $cart_data["qty"], "hostid" => intval($cart_data["hostid"])];
-		if (getEdition()) {
+		if (true) {
 			$alloption_ids = $alloption ? array_column($alloption, "id") : [];
 			$cart_data_ids = $cart_data["configoptions"] ? array_keys($cart_data["configoptions"]) : [];
 			if (array_intersect($alloption_ids, $cart_data_ids)) {

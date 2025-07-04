@@ -35,7 +35,7 @@ class UserManageController extends GetUserController
 		$client = \think\Db::name("clients")->field("id,currency,username,companyname,activation,is_open_credit_limit")->where("id", $uid)->find();
 		$developer = \think\Db::name("developer")->where("uid", $uid)->where("status", "Active")->order("id", "desc")->find();
 		$client["developer"] = !empty($developer) ? 1 : 0;
-		$client["edition"] = getEdition();
+		$client["edition"] = true;
 		$client["uncertifi"] = checkCertify($uid) ? 1 : 0;
 		return json(["status" => 200, "msg" => lang("SUCCESS MESSAGE"), "data" => $client]);
 	}
@@ -3198,7 +3198,7 @@ class UserManageController extends GetUserController
 				}
 			}
 			$config = $this->getConfInfo();
-			$config["certifi_business_is_author"] = getEdition() ? 1 : 0;
+			$config["certifi_business_is_author"] = true ? 1 : 0;
 			return jsons(["status" => 200, "data" => ["log" => $log, "company" => $this->getPluginsInfo("enterprises"), "person" => $this->getPluginsInfo("personal"), "config" => $config]]);
 		} catch (\Throwable $e) {
 			return jsons(["status" => 400, "msg" => $e->getMessage()]);
@@ -3207,7 +3207,7 @@ class UserManageController extends GetUserController
 	protected function passSendSms($param)
 	{
 		$conf = $this->getConfInfo();
-		if (!$conf["artificial_auto_send_msg"] || !getEdition()) {
+		if (!$conf["artificial_auto_send_msg"] || !true) {
 			return false;
 		}
 		$message_template_type = array_column(config("message_template_type"), "id", "name");
