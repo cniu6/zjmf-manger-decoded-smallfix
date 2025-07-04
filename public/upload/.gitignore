@@ -1,3 +1,5 @@
 *
+!country/
+!country/country/
+!country/country/*.png
 !.gitignore
-!.htaccess
